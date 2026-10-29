@@ -1,0 +1,14 @@
+{
+  "name": "kit-edicao-video",
+  "description": "Kit de edição de vídeo com Claude, DaVinci Resolve Studio e Canva: método, skills e motor para cada criador montar os próprios presets.",
+  "owner": {
+    "name": "Roberto Tavares"
+  },
+  "plugins": [
+    {
+      "name": "kit-edicao-video",
+      "source": "./plugins/kit-edicao-video",
+      "description": "Edite vídeos no DaVinci Resolve Studio com o Claude: pauta em marcadores, presets de gráficos feitos por você, decupagem, zoom, SFX e assets do Canva."
+    }
+  ]
+}

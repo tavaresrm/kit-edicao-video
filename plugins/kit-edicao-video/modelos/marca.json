@@ -1,0 +1,20 @@
+{
+  "canal": "Canal Exemplo",
+  "fps": "24000/1001",
+  "fontes": {
+    "titulo": {"familia": "Fraunces", "arquivo": "marca/fontes/Fraunces.ttf", "peso": 600},
+    "texto": {"familia": "Inter", "arquivo": "marca/fontes/Inter.ttf", "peso": 600},
+    "detalhe": {"familia": "Inter", "arquivo": "marca/fontes/Inter.ttf", "peso": 700}
+  },
+  "cores": {
+    "texto": "#FFFFFF",
+    "destaque": "#3DDC97",
+    "texto_sobre_destaque": "#0B0B0B",
+    "sombra": "rgba(0,0,0,.55)"
+  },
+  "escala": 0.85,
+  "margem": 96,
+  "lado_livre": "dir",
+  "layout": "lado",
+  "animacao": {"entrada_s": 0.5, "saida_s": 0.4}
+}

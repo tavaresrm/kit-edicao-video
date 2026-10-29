@@ -1,0 +1,19 @@
+{
+  "name": "kit-edicao-video",
+  "version": "0.1.0",
+  "description": "Edite vídeos no DaVinci Resolve Studio com o Claude: pauta em marcadores, presets de gráficos feitos por você, decupagem, zoom, SFX e assets do Canva.",
+  "author": {
+    "name": "Roberto Tavares"
+  },
+  "homepage": "https://www.youtube.com/@ThaiseRoberto",
+  "license": "MIT",
+  "keywords": [
+    "davinci-resolve",
+    "edicao-de-video",
+    "youtube",
+    "canva",
+    "presets",
+    "portugues"
+  ],
+  "repository": "https://github.com/tavaresrm/kit-edicao-video"
+}

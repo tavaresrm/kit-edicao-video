@@ -1,0 +1,8 @@
+[
+  {"nome": "topico_01", "tipo": "topico", "t0": 0, "t1": 119, "kicker": "CAPÍTULO 1", "titulo": "Por que editar com método"},
+  {"nome": "frase_01", "tipo": "frase", "t0": 130, "t1": 239,
+   "palavras": [["Quem", 134], ["tem", 140], ["método", 146], ["não", 156], ["depende", 162], ["de", 170], ["inspiração.", 174]],
+   "destaque": "não depende"},
+  {"nome": "lista_01", "tipo": "lista", "t0": 250, "t1": 389, "titulo": "O que o kit faz",
+   "itens": [["Pauta em marcadores", 262], ["Gráficos do seu jeito", 292], ["Conferência por quadros", 322]]}
+]

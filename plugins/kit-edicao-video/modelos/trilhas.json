@@ -1,0 +1,18 @@
+{
+  "LEIA": "Uma trilha por tipo, de baixo para cima. Os scripts acham a trilha pelo tipo; o nome aparece no Resolve. Cores de clipe válidas no Resolve: Orange, Apricot, Yellow, Lime, Olive, Green, Teal, Navy, Blue, Purple, Violet, Pink, Tan, Beige, Brown, Chocolate.",
+  "video": [
+    {"tipo": "camera", "nome": "Câmera", "cor": "Blue"},
+    {"tipo": "broll", "nome": "B-roll", "cor": "Yellow"},
+    {"tipo": "fundo", "nome": "Fundos", "cor": "Beige"},
+    {"tipo": "camdesl", "nome": "Câmera deslocada", "cor": "Teal"},
+    {"tipo": "texto", "nome": "Texto", "cor": "Orange"},
+    {"tipo": "grafico", "nome": "Gráficos", "cor": "Pink"},
+    {"tipo": "cta", "nome": "CTA", "cor": "Apricot"}
+  ],
+  "audio": [
+    {"tipo": "voz", "nome": "Voz", "cor": "Blue"},
+    {"tipo": "sfx", "nome": "SFX", "cor": "Lime"},
+    {"tipo": "musica", "nome": "Música", "cor": "Green"},
+    {"tipo": "extra", "nome": "Extra"}
+  ]
+}
