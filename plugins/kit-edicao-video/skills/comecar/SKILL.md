@@ -57,7 +57,7 @@ Antes de qualquer script que muda o Resolve: avise a pessoa, porque o Resolve va
 5. Diga à pessoa que o projeto "TESTE kit" pode ser apagado no Resolve por ela.
 
 ## Atualizar o kit
-Quando `motor/VERSAO` do plugin for mais nova que `<pasta>/kit/VERSAO`: substitua `<pasta>/kit/` pelo `motor/` novo (o resto da pasta não muda) e copie de `modelos/` só os arquivos que ainda não existem na pasta da pessoa. Diga o que mudou.
+Quando `motor/VERSAO` do plugin for mais nova que `<pasta>/kit/VERSAO`: substitua `<pasta>/kit/` pelo `motor/` novo (o resto da pasta não muda) e copie de `modelos/` só os arquivos que ainda não existem na pasta da pessoa. Se a versão nova mudou `modelos/REGRAS.md` ou `modelos/CHECKLIST.md` (está no CHANGELOG do repositório), mostre a diferença para os arquivos da pessoa e pergunte, um arquivo por vez, o que entra. Nunca sobrescreva: ela pode ter regras próprias ali. Diga o que mudou.
 
 ## Nunca
 - Sobrescrever arquivo da pasta da pessoa fora de `kit/`.

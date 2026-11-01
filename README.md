@@ -5,11 +5,12 @@ Este é o método que eu uso para editar os vídeos do canal [@ThaiseRoberto](ht
 O kit não traz os presets do nosso canal. Ele traz o método e as ferramentas para você criar os seus: o Claude entende o seu canal, estuda referências que você escolhe, escreve as regras, programa a animação, mostra uma prévia sobre um quadro do seu vídeo e só aplica depois que você aprova.
 
 ## O que o kit faz
-- **Pauta em marcadores.** Antes de montar, o Claude marca no Resolve tudo o que pretende fazer. Você aprova, pede para refazer ou ajusta, com cores de marcador.
+- **Pauta em marcadores.** Antes de montar, o Claude marca no Resolve tudo o que pretende fazer. A cor diz o estado de cada item: vermelho é pedido seu, verde é pedido resolvido, ciano é novidade esperando a sua aprovação. Cada timeline leva só os marcadores da rodada.
 - **Presets seus.** Tópico, frase, lista, card de CTA, prova na tela: cada gráfico vira um preset com regras e código, sempre igual de um vídeo para o outro.
 - **Montagem por script.** Os gráficos entram como camadas transparentes, cada tipo na sua trilha, com cor e nome fixos.
 - **Rodadas sem risco.** Cada rodada vira uma timeline nova. A anterior nunca é alterada.
-- **Conferência por quadros.** O Claude exporta quadros do próprio Resolve e olha antes de te responder.
+- **Conferência por quadros.** O Claude exporta quadros do próprio Resolve e olha antes de te responder: números iguais à fonte, fonte no rodapé, nada cortado.
+- **Revisão com fonte.** Ao montar, o Claude revisa o vídeo inteiro atrás de melhoria (matéria sem foto, número falado sem nada na tela) e propõe em ciano.
 - **Extras:** projeto modelo para todo vídeo novo, decupagem (silêncio, erro, take repetido), zoom na câmera, SFX por animação e assets do vídeo organizados no Canva.
 
 ## O que você precisa
@@ -26,6 +27,8 @@ Detalhes em [docs/01-aplicativos.md](docs/01-aplicativos.md).
 1. No DaVinci Resolve Studio: **File > Setup AI Assistants** e escolha o Claude.
 2. No Claude desktop: **Personalizar > Plugins > Adicionar marketplace**, cole `tavaresrm/kit-edicao-video` e instale o plugin **kit-edicao-video**.
 3. Numa conversa nova do Cowork, escreva: **"quero configurar o kit de edição"**.
+
+No Claude Code: `/plugin install kit-edicao-video --marketplace tavaresrm/kit-edicao-video`
 
 Passo a passo: [docs/02-instalacao.md](docs/02-instalacao.md).
 

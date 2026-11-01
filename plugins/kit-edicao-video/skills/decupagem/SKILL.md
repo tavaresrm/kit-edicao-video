@@ -15,7 +15,7 @@ Antes: ler `LEIA.md`, `REGRAS.md`, `aprendizados.md` e `videos/<video>/notas.md`
 3. **Silêncios.** Com ffmpeg: `ffmpeg -i <arquivo da voz> -af silencedetect=noise=-35dB:d=0.3 -f null -`. O limite (0,3 s e -35 dB) é ponto de partida: confirme com a pessoa e anote em `aprendizados.md`. Mantenha 3 quadros antes e 4 depois de cada fala para não cortar sílaba.
 4. **Takes repetidos e falsos começos** pela transcrição: frases iguais ou quase iguais em sequência = fica a última; frase interrompida e recomeçada = sai a interrompida. Frases diferentes sobre o mesmo ponto não são take repetido: marque como pergunta.
 5. **Pauta.** Grave `videos/<video>/pauta_decupagem.json` e escreva com `marcadores.py` (modo "pauta") um marcador azul por corte, com a duração cobrindo o trecho a tirar; nome = motivo (silêncio, erro, falso começo, take repetido); nota = o texto que sai. Silêncios simples podem ir num marcador só, com a lista.
-6. **Aprovação.** Vermelho = não cortar, verde = aprovado ou ajuste. Leia as notas com `marcadores.py` (modo "ler").
+6. **Aprovação.** Vermelho = pedido da pessoa (não cortar, ou cortar diferente, com nota); sem vermelho e com o "aprovado" dela, a pauta vale. Leia as notas com `marcadores.py` (modo "ler").
 7. **Corte.** Timeline nova "Claude - Decupado v1" só com os trechos mantidos, em ordem, por `AppendToTimeline` (vídeo e áudio juntos, mesmos quadros de origem). Confira `GetStart`, `GetEnd` e `GetLeftOffset` de cada trecho.
 8. **Conferência.** Duração antes e depois, número de cortes, duração média dos planos, e ouça três emendas ao acaso (render curto de cada emenda) para checar palavra cortada.
 9. **Registro.** `aprendizados.md` (limite de silêncio, o que a pessoa devolveu) e `videos/<video>/notas.md`.

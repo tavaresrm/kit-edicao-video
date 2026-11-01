@@ -42,7 +42,7 @@ Quando o preset é um clipe que nunca muda (inscrever, vinheta, CTA fixo do prod
 ## 6. Teste no Resolve
 1. Numa timeline nova (copiada de uma timeline real), monte o preset em um minuto de vídeo com `kit/resolve/montar_camadas.py`.
 2. Exporte quadros com `conferir_quadros.py`, junte com `folha.py` e olhe antes de responder.
-3. A pessoa revisa no Resolve: marcador vermelho = refazer, verde = aprovado ou ajuste (com nota). Leia os marcadores com `marcadores.py` (modo "ler").
+3. A pessoa revisa no Resolve: marcador vermelho = pedido de ajuste (com nota). Sem vermelho e com o "aprovado" dela, o teste passou. Leia os marcadores com `marcadores.py` (modo "ler").
 
 ## 7. Aprovado
 - Status FINAL no arquivo do preset, com a data e a versão.

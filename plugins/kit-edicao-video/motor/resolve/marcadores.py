@@ -7,6 +7,10 @@
 #   result = rodar("marcadores.py", {"MODO": '"pauta"', "TL": '"Bruto"', "TL_NOVA": '"Claude - Edicao pauta v1"',
 #                                    "PAUTA_JSON": '"/.../videos/meu_video/pauta_v1.json"'})
 #   PAUTA_JSON: lista de {"quadro", "duracao", "cor", "nome", "nota", "id"} (quadros desde o início da timeline).
+#   Cores por estado (REGRAS.md): Red = pedido da pessoa; Green = pedido resolvido nesta rodada; Cyan = mudança nova
+#   esperando aprovação; Blue = proposta antes de montar; Yellow = lugar de b-roll. Nome começa pela rodada ("v3 · ...").
+#   Item com "resolve": {"onde": "timeline" ou "clipe", "quadro": q} tira da timeline NOVA o marcador vermelho da pessoa
+#   naquele quadro (da timeline ou de dentro do clipe), para o verde entrar no lugar. Vermelho não resolvido fica.
 import json
 # ---- PARAMETROS ----
 MODO = "ler"
@@ -44,6 +48,22 @@ elif MODO == "pauta":
         for f, m in list((tl.GetMarkers() or {}).items()):
             if str(m.get("customData", "")).startswith("claude:"):
                 tl.DeleteMarkerAtFrame(f)
+    resolvidos = []
+    for p in pauta:
+        r = p.get("resolve")
+        if not r:
+            continue
+        q = int(r["quadro"])
+        if r.get("onde", "timeline") == "timeline":
+            if q in (tl.GetMarkers() or {}):
+                tl.DeleteMarkerAtFrame(q); resolvidos.append(["timeline", q])
+        else:
+            for kind in ("video", "audio"):
+                for i in range(1, tl.GetTrackCount(kind) + 1):
+                    for c in tl.GetItemListInTrack(kind, i) or []:
+                        fc = q - (c.GetStart() - t0)
+                        if 0 <= fc < c.GetDuration() and fc in (c.GetMarkers() or {}):
+                            c.DeleteMarkerAtFrame(fc); resolvidos.append([c.GetName(), q])
     ja = set((tl.GetMarkers() or {}).keys()); postos, falhou = [], []
     for k, p in enumerate(pauta):
         f = int(p["quadro"])
@@ -52,6 +72,6 @@ elif MODO == "pauta":
         ok = tl.AddMarker(f, p.get("cor", "Blue"), p["nome"][:60], p.get("nota", ""), max(1, int(p.get("duracao", 1))),
                           "claude:" + p.get("id", f"p{k + 1:02d}"))
         (postos if ok else falhou).append([p.get("id"), f]); ja.add(f)
-    result = {"timeline": TL_NOVA, "postos": len(postos), "falharam": falhou}
+    result = {"timeline": TL_NOVA, "postos": len(postos), "falharam": falhou, "vermelhos_resolvidos": resolvidos}
 else:
     raise AssertionError("MODO deve ser 'ler' ou 'pauta'")

@@ -2,7 +2,7 @@
 #   result = rodar("zoom_1_plano.py", {"TL": '"Claude - Edicao v3"', "TL_NOVA": '"Claude - Edicao v4 zoom"',
 #                                      "PLANO_JSON": '"/.../videos/meu_video/zoom_plano_v4.json"'})
 # Duplica a timeline, escolhe os clipes da câmera pelas regras abaixo, aplica o zoom fixo (Zoom do Inspector),
-# põe um marcador azul por clipe e grava o plano em JSON. O passo 2 (zoom_2_movimento.py) faz os zooms lentos,
+# põe um marcador ciano de resumo (ou um azul por clipe, se MARCADOR_POR_CLIPE) e grava o plano em JSON. O passo 2 (zoom_2_movimento.py) faz os zooms lentos,
 # em OUTRO comando (Fusion criado no mesmo comando que monta o clipe não aparece no render).
 # Regras padrão (ajuste no seu preset de zoom):
 #   - PROPORCAO dos clipes elegíveis ganha zoom; nunca dois clipes seguidos.
@@ -24,10 +24,17 @@ COBERTO = 0.2           # fração coberta acima da qual o clipe fica sem zoom
 COBREM = ["broll", "fundo", "camdesl"]   # tipos de trilha que escondem a câmera
 PREFIXO_CAMERA = ""     # ex.: "C0" ou "DJI" para considerar só os arquivos da câmera principal
 PREFIXO_TOPICO = "topico"
+MARCADOR_POR_CLIPE = False   # True = um marcador azul por clipe (só se a pessoa pedir); padrão: um ciano de resumo
+RODADA = ""                  # ex.: "v4": começo do nome do marcador
+APAGAR_HERDADOS = True       # tira da timeline NOVA os marcadores do Claude de rodadas anteriores
 # --------------------
 exec(open(KIT + "resolve/trilhas.py", encoding="utf-8").read())
 assert TL and TL_NOVA and PLANO_JSON, "faltou TL, TL_NOVA ou PLANO_JSON"
 tl = duplicar(TL, TL_NOVA)
+if APAGAR_HERDADOS:   # timeline nova só com os marcadores desta rodada; vermelho da pessoa fica
+    for _f, _m in list((tl.GetMarkers() or {}).items()):
+        if str(_m.get("customData", "")).startswith("claude:"):
+            tl.DeleteMarkerAtFrame(_f)
 preparar(tl); t0 = tl.GetStartFrame(); FPS = float(tl.GetSetting("timelineFrameRate") or 24)
 cob = [(c.GetStart() - t0, c.GetEnd() - t0) for tp in COBREM if tp in _TAB
        for c in tl.GetItemListInTrack("video", trilha(tl, tp)) or []]
@@ -76,7 +83,7 @@ for k in esc:
         c["it"].SetProperty("ZoomX", PUNCH); c["it"].SetProperty("ZoomY", PUNCH)
 ja = set((tl.GetMarkers() or {}).keys())
 NOTA = {"punch": f"Zoom fixo {PUNCH:.2f}", "push_in": "Zoom lento de entrada", "push_out": "Zoom lento de saída (fecha a ideia)"}
-for s, tipo in plano.items():
+for s, tipo in (plano.items() if MARCADOR_POR_CLIPE else []):
     c = next(x for x in clip if x["s"] == s); f = s
     while f in ja:
         f += 1
@@ -86,3 +93,10 @@ json.dump({"timeline": TL_NOVA, "plano": plano}, open(PLANO_JSON, "w", encoding=
 n_ok = sum(1 for c in clip if c["ok"])
 result = {"timeline": TL_NOVA, "clipes": len(clip), "elegiveis": n_ok, "com_zoom": len(plano),
           "tipos": {t: list(plano.values()).count(t) for t in NOTA}, "seguidos": sum(1 for k in esc if k + 1 in esc)}
+if not MARCADOR_POR_CLIPE:   # marcadores por estado: passada mecânica = um ciano de resumo no começo
+    f = 0
+    while f in ja:
+        f += 1
+    tl.AddMarker(f, "Cyan", ((RODADA + " · ") if RODADA else "") + "Zoom",
+                 f"Passada de zoom: {len(plano)} de {n_ok} clipes elegíveis; tipos {result['tipos']}. Plano em {PLANO_JSON}.",
+                 1, "claude:zoom")

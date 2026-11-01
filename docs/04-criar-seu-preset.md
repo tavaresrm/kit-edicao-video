@@ -22,11 +22,13 @@ Numa conversa do Cowork, descreva o gráfico. Exemplos:
 3. **Regras escritas.** Ele cria `presets/<nome>.md` com tudo isso e te mostra. Você corrige antes de qualquer código.
 4. **Código.** Ele cria `presets/codigo/<nome>.py` a partir do exemplo do kit, usando as suas fontes e cores.
 5. **Prévia.** Um quadro do gráfico sobre um quadro real do seu vídeo. Quando há escolha (duas posições, dois estilos), as opções vêm lado a lado. Você aprova ou pede ajuste.
-6. **Teste de um minuto no Resolve.** Numa timeline nova. Você revisa no próprio Resolve: marcador vermelho para refazer, verde para aprovar (com nota, se tiver ajuste).
+6. **Teste de um minuto no Resolve.** Numa timeline nova. Você revisa no próprio Resolve: marcador vermelho onde quer ajuste, com a nota do que mudar. Sem vermelho, diga "aprovado".
 7. **Aprovado.** O preset vira FINAL, ganha uma regra em `REGRAS.md` e, se entra em todo vídeo, uma linha no `CHECKLIST.md`.
 
 ## Dicas
 - **Comece pelo que aparece em todo vídeo:** tópico e frase. Depois CTA. Depois o resto.
+- **Se você fala de números, faça um preset de dados.** Tabela, número grande, barras ou antes e depois, com a fonte no rodapé. Número falado sem nada na tela se perde; com a fonte na tela, ganha credibilidade.
+- **Matéria com foto.** Se você mostra notícias, o preset de matéria fica melhor com a foto da própria matéria.
 - **Um preset por vez.** Só comece o próximo quando o anterior estiver aprovado num vídeo real.
 - **Seja específico na correção.** "Menor, mais perto da borda, entra 0,2 s mais rápido" funciona melhor que "não gostei".
 - **Rosto nunca coberto.** Se você grava com duas pessoas no quadro, peça a versão de centro (embaixo) dos presets de texto.

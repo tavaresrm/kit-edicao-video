@@ -1,6 +1,7 @@
-# Checklist de edição (v1)
+# Checklist de edição (v2)
 
-Ordem de trabalho de cada vídeo. Cada etapa: pauta em marcadores numa timeline nova, aprovação sua, montagem, conferência por quadros exportados do Resolve. Render só quando você pedir.
+Ordem de trabalho de cada vídeo. Cada etapa: pauta em marcadores numa timeline nova, aprovação sua, montagem, conferência por quadros exportados do Resolve. O render é seu, à mão.
+Cores dos marcadores (REGRAS.md, regra 2): vermelho = pedido seu; verde = pedido resolvido na rodada; ciano = mudança nova esperando aprovação; azul = proposta antes de montar; amarelo = b-roll.
 Legenda: [sempre] entra em todo vídeo · [se couber] entra quando a fala ou o material pede · [sob pedido] só quando você pede.
 Edite à vontade: tire, mude ou acrescente etapas. O Claude segue o que estiver aqui.
 
@@ -24,15 +25,18 @@ Edite à vontade: tire, mude ou acrescente etapas. O Claude segue o que estiver 
 - [ ] [sempre] Pauta completa em marcadores azuis numa timeline nova, com a lista do que falta de assets num pedido só.
 - [ ] [sempre] Prévia: um quadro de cada tipo de gráfico sobre um quadro real do vídeo. Só depois da prévia aprovada gerar o vídeo inteiro.
 - [ ] [sempre] Presets aprovados em `presets/` (cada um diz quando entra).
+- [ ] [se couber] Matéria ou notícia na tela com foto, sempre que existir.
+- [ ] [se couber] Número, comparação ou evolução falada que tem fonte vira dado na tela (preset de dados, se você tiver um), com a fonte no rodapé.
+- [ ] [sempre] Na timeline montada: cada pedido vermelho resolvido vira verde no mesmo quadro; o que entrou sem pedido fica em ciano.
+- [ ] [sempre] Revisão do vídeo inteiro atrás de melhoria com fonte (matéria repetida, número falado sem tela, lista que pode virar dado), proposta em ciano.
 
 ## Apoio
 - [ ] [se couber] B-roll sinalizado em marcadores amarelos junto da pauta; você escolhe e insere.
-- [ ] [sob pedido] Zoom na câmera (`kit/resolve/zoom_1_plano.py` e `zoom_2_movimento.py`).
+- [ ] [sob pedido] Zoom na câmera (`kit/resolve/zoom_1_plano.py` e `zoom_2_movimento.py`): um ciano de resumo.
 
 ## Última passada
-- [ ] [se couber] SFX por animação (`kit/resolve/sfx.py`): pauta, aprovação, montagem. Por último, depois do visual aprovado.
+- [ ] [se couber] SFX por animação (`kit/resolve/sfx.py`): lista, aprovação, montagem numa timeline nova, um ciano de resumo. Por último, depois do visual aprovado.
 
 ## Fechamento
-- [ ] [sempre] Conferência por quadros exportados do Resolve (`kit/resolve/conferir_quadros.py` + `kit/graficos/folha.py`), folha olhada antes de responder.
-- [ ] [sempre] Anotar em `aprendizados.md` o que você corrigiu; atualizar o arquivo do preset quando a versão muda.
-- [ ] [sob pedido] Render.
+- [ ] [sempre] Conferência por quadros exportados do Resolve (`kit/resolve/conferir_quadros.py` + `kit/graficos/folha.py`), folha olhada antes de responder: números iguais à fonte, fonte no rodapé, nomes e grafia certos, nada cortado na borda.
+- [ ] [sempre] Anotar em `aprendizados.md` o que você corrigiu; atualizar o arquivo do preset e este checklist quando algo muda.
